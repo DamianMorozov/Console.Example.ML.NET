@@ -1,4 +1,3 @@
-﻿using Microsoft.Data.DataView;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using System;
@@ -7,7 +6,7 @@ using System;
 // assigned to dynamically by ML.NET at runtime
 #pragma warning disable CS0649
 
-namespace ConsoleExampleML
+namespace myMLApp
 {
     class Program
     {
@@ -19,24 +18,22 @@ namespace ConsoleExampleML
         public class IrisData
         {
             [LoadColumn(0)]
-            public string Label;
-
-            [LoadColumn(1)]
             public float SepalLength;
 
-            [LoadColumn(2)]
+            [LoadColumn(1)]
             public float SepalWidth;
 
-            [LoadColumn(3)]
+            [LoadColumn(2)]
             public float PetalLength;
 
-            [LoadColumn(4)]
+            [LoadColumn(3)]
             public float PetalWidth;
+
+            [LoadColumn(4)]
+            public string Label;
         }
 
-        /// <summary>
-        /// IrisPrediction is the result returned from prediction operations
-        /// </summary>
+        // IrisPrediction is the result returned from prediction operations
         public class IrisPrediction
         {
             [ColumnName("PredictedLabel")]
@@ -50,8 +47,7 @@ namespace ConsoleExampleML
 
             // If working in Visual Studio, make sure the 'Copy to Output Directory'
             // property of iris-data.txt is set to 'Copy always'
-            IDataView trainingDataView = mlContext.Data.LoadFromTextFile<IrisData>
-            (path: "iris-data.txt", hasHeader: false, separatorChar: ',');
+            IDataView trainingDataView = mlContext.Data.LoadFromTextFile<IrisData>(path: "iris-data.txt", hasHeader: false, separatorChar: ',');
 
             // STEP 3: Transform your data and add a learner
             // Assign numeric values to text in the "Label" column, because only
@@ -59,11 +55,9 @@ namespace ConsoleExampleML
             // Add a learning algorithm to the pipeline. e.g.(What type of iris is this?)
             // Convert the Label back into original text (after converting to number in step 3)
             var pipeline = mlContext.Transforms.Conversion.MapValueToKey("Label")
-                .Append(mlContext.Transforms.Concatenate(
-                "Features", "SepalLength", "SepalWidth", "PetalLength", "PetalWidth"))
+                .Append(mlContext.Transforms.Concatenate("Features", "SepalLength", "SepalWidth", "PetalLength", "PetalWidth"))
                 .AppendCacheCheckpoint(mlContext)
-                .Append(mlContext.MulticlassClassification.Trainers.StochasticDualCoordinateAscent(
-                labelColumnName: "Label", featureColumnName: "Features"))
+                .Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(labelColumnName: "Label", featureColumnName: "Features"))
                 .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
 
             // STEP 4: Train your model based on the data set
@@ -71,7 +65,7 @@ namespace ConsoleExampleML
 
             // STEP 5: Use your model to make a prediction
             // You can change these numbers to test different predictions
-            var prediction = model.CreatePredictionEngine<IrisData, IrisPrediction>(mlContext).Predict(
+            var prediction = mlContext.Model.CreatePredictionEngine<IrisData, IrisPrediction>(model).Predict(
                 new IrisData()
                 {
                     SepalLength = 3.3f,
