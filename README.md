@@ -19,6 +19,7 @@
 [Download .NET SDK 32-bit.](https://download.visualstudio.microsoft.com/download/pr/e2e6fc59-d6ed-4845-8769-872049fb50b4/d41c74a31b8a64545914dfe2479207ad/dotnet-sdk-2.2.105-win-gs-x86.exe)
 
 Check everything installed correctly.
+
 `> dotnet --info`
 
 ----------------------------------------------------------------------------------------------------
@@ -26,10 +27,12 @@ Check everything installed correctly.
 ### Create your app
 
 Command prompt.
+
 `> dotnet new console -o myMLApp
 > cd myMLApp`
 
 Visual Studio.
+
 `.NET Core 2.1 or later`
 
 ----------------------------------------------------------------------------------------------------
@@ -37,12 +40,15 @@ Visual Studio.
 ### Install ML.NET package.
 
 Command prompt.
+
 `> dotnet add package Microsoft.ML --version 1.0.0-preview`
 
 .NET CLI.
+
 `> Install-Package Microsoft.ML -Version 1.0.0-preview`
 
 Package Manager.
+
 `> Install-Package Microsoft.ML -Version 0.11.0`
 
 ----------------------------------------------------------------------------------------------------
@@ -151,6 +157,7 @@ namespace myMLApp
 ### Run your app.
 
 Command prompt.
+
 `> dotnet run`
 
 ----------------------------------------------------------------------------------------------------
@@ -166,12 +173,14 @@ Register Microsoft key and feed.
 $ sudo dpkg -i packages-microsoft-prod.deb`
 
 Install the .NET SDK.
+
 `$ sudo add-apt-repository universe
 $ sudo apt-get install apt-transport-https
 $ sudo apt-get update
 $ sudo apt-get install dotnet-sdk-2.2`
 
 Terminal.
+
 `$ dotnet --info`
 
 ----------------------------------------------------------------------------------------------------
@@ -179,6 +188,7 @@ Terminal.
 ### Create your app
 
 Terminal.
+
 `$ dotnet new console -o myMLApp
 $ cd myMLApp`
 
@@ -187,6 +197,7 @@ $ cd myMLApp`
 ### Install ML.NET package.
 
 Terminal.
+
 `$ dotnet add package Microsoft.ML --version 1.0.0-preview`
 ----------------------------------------------------------------------------------------------------
 
@@ -290,6 +301,7 @@ namespace myMLApp
 ### Run your app.
 
 Terminal.
+
 `$ dotnet run`
 
 ----------------------------------------------------------------------------------------------------
