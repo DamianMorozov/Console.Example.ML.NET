@@ -1,7 +1,9 @@
 # Console example of ML.NET.
 
 **[Original manual.](https://dotnet.microsoft.com/learn/machinelearning-ai/ml-dotnet-get-started-tutorial)**
+
 **[ML.NET Guide.](https://docs.microsoft.com/ru-ru/dotnet/machine-learning/)**
+
 ----------------------------------------------------------------------------------------------------
 
 ## Windows.
@@ -11,11 +13,14 @@
 ### Download and install.
 
 [Download .NET SDKs for Visual Studio.](https://dotnet.microsoft.com/download/visual-studio-sdks)
+
 [Download .NET SDK 64-bit.](https://download.visualstudio.microsoft.com/download/pr/26f5f19d-3eba-4ee0-b4d4-3fa2a6dc0f4b/c4a0c3ff9c8df8e472b51532d7b3eb35/dotnet-sdk-2.2.105-win-gs-x64.exe)
+
 [Download .NET SDK 32-bit.](https://download.visualstudio.microsoft.com/download/pr/e2e6fc59-d6ed-4845-8769-872049fb50b4/d41c74a31b8a64545914dfe2479207ad/dotnet-sdk-2.2.105-win-gs-x86.exe)
 
 Check everything installed correctly.
 '> dotnet --info'
+
 ----------------------------------------------------------------------------------------------------
 
 ### Create your app
@@ -26,6 +31,7 @@ Command prompt.
 
 Visual Studio.
 '.NET Core 2.1 or later'
+
 ----------------------------------------------------------------------------------------------------
 
 ### Install ML.NET package.
@@ -36,6 +42,7 @@ Command prompt.
 `> Install-Package Microsoft.ML -Version 1.0.0-preview`
 Package Manager.
 `> Install-Package Microsoft.ML -Version 0.11.0`
+
 ----------------------------------------------------------------------------------------------------
 
 ### Download data set.
@@ -45,6 +52,7 @@ Package Manager.
 Visual Studio.
 Configure iris-data.txt to be copied to the output directory.
 Set Copy To Output Directory to Copy always.
+
 ----------------------------------------------------------------------------------------------------
 
 ### Write program code.
@@ -117,28 +125,31 @@ namespace myMLApp
 
             // STEP 5: Use your model to make a prediction
             // You can change these numbers to test different predictions
-            var prediction = mlContext.Model.CreatePredictionEngine<IrisData, IrisPrediction>(model).Predict(
-                new IrisData()
-                {
-                    SepalLength = 3.3f,
-                    SepalWidth = 1.6f,
-                    PetalLength = 0.2f,
-                    PetalWidth = 5.1f,
-                });
+            var irisData = new IrisData()
+            {
+                SepalLength = 3.3f,
+                SepalWidth = 1.6f,
+                PetalLength = 0.2f,
+                PetalWidth = 5.1f,
+            };
+            var prediction = mlContext.Model.CreatePredictionEngine<IrisData, IrisPrediction>(model).Predict(irisData);
 
+            Console.WriteLine($"Flower data: {irisData.SepalLength}, {irisData.SepalWidth}, {irisData.PetalLength}, {irisData.PetalWidth}.");
             Console.WriteLine($"Predicted flower type is: {prediction.PredictedLabels}");
 
             Console.WriteLine("Press any key to exit....");
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }'
+
 ----------------------------------------------------------------------------------------------------
 
 ### Run your app.
 
 Command prompt.
 '> dotnet run'
+
 ----------------------------------------------------------------------------------------------------
 
 ## Linux.
@@ -159,6 +170,7 @@ $ sudo apt-get install dotnet-sdk-2.2'
 
 Terminal.
 '$ dotnet --info'
+
 ----------------------------------------------------------------------------------------------------
 
 ### Create your app
@@ -166,6 +178,7 @@ Terminal.
 Terminal.
 '$ dotnet new console -o myMLApp
 $ cd myMLApp'
+
 ----------------------------------------------------------------------------------------------------
 
 ### Install ML.NET package.
@@ -177,6 +190,7 @@ Terminal.
 ### Download data set.
 
 [Download iris.data.](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data)
+
 ----------------------------------------------------------------------------------------------------
 
 ### Write program code.
@@ -249,26 +263,29 @@ namespace myMLApp
 
             // STEP 5: Use your model to make a prediction
             // You can change these numbers to test different predictions
-            var prediction = mlContext.Model.CreatePredictionEngine<IrisData, IrisPrediction>(model).Predict(
-                new IrisData()
-                {
-                    SepalLength = 3.3f,
-                    SepalWidth = 1.6f,
-                    PetalLength = 0.2f,
-                    PetalWidth = 5.1f,
-                });
+            var irisData = new IrisData()
+            {
+                SepalLength = 3.3f,
+                SepalWidth = 1.6f,
+                PetalLength = 0.2f,
+                PetalWidth = 5.1f,
+            };
+            var prediction = mlContext.Model.CreatePredictionEngine<IrisData, IrisPrediction>(model).Predict(irisData);
 
+            Console.WriteLine($"Flower data: {irisData.SepalLength}, {irisData.SepalWidth}, {irisData.PetalLength}, {irisData.PetalWidth}.");
             Console.WriteLine($"Predicted flower type is: {prediction.PredictedLabels}");
 
             Console.WriteLine("Press any key to exit....");
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }'
+
 ----------------------------------------------------------------------------------------------------
 
 ### Run your app.
 
 Terminal.
 '$ dotnet run'
+
 ----------------------------------------------------------------------------------------------------
