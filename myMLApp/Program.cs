@@ -65,19 +65,20 @@ namespace myMLApp
 
             // STEP 5: Use your model to make a prediction
             // You can change these numbers to test different predictions
-            var prediction = mlContext.Model.CreatePredictionEngine<IrisData, IrisPrediction>(model).Predict(
-                new IrisData()
-                {
-                    SepalLength = 3.3f,
-                    SepalWidth = 1.6f,
-                    PetalLength = 0.2f,
-                    PetalWidth = 5.1f,
-                });
+            var irisData = new IrisData()
+            {
+                SepalLength = 3.3f,
+                SepalWidth = 1.6f,
+                PetalLength = 0.2f,
+                PetalWidth = 5.1f,
+            };
+            var prediction = mlContext.Model.CreatePredictionEngine<IrisData, IrisPrediction>(model).Predict(irisData);
 
+            Console.WriteLine($"Flower data: {irisData.SepalLength}, {irisData.SepalWidth}, {irisData.PetalLength}, {irisData.PetalWidth}.");
             Console.WriteLine($"Predicted flower type is: {prediction.PredictedLabels}");
 
             Console.WriteLine("Press any key to exit....");
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
