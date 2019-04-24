@@ -49,7 +49,7 @@ Command prompt.
 
 Package Manager.
 
-`> Install-Package Microsoft.ML -Version 0.11.0`
+`> Install-Package Microsoft.ML -Version 1.0.0-preview`
 
 ----------------------------------------------------------------------------------------------------
 
