@@ -8,11 +8,11 @@ using Microsoft.ML;
 using Microsoft.ML.Data;
 using NetCoreMLAppML.Model;
 
-namespace NetCoreMLAppML.ConsoleApp
+namespace NetCoreMLApp
 {
     public static class ModelBuilder
     {
-        private static string TRAIN_DATA_FILEPATH = @"D:\DevSource\Git.MD\C#\Console.Example.ML.NET\NetCoreMLApp\iris-data.txt";
+        private static string TRAIN_DATA_FILEPATH = @"iris-data.txt";
         private static string MODEL_FILE = ConsumeModel.MLNetModelPath;
 
         // Create MLContext to be shared across the model creation workflow objects 

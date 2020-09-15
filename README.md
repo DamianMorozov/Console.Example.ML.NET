@@ -6,6 +6,8 @@
 
 **[ML.NET Tutorial - Get started in 10 minutes](https://dotnet.microsoft.com/learn/ml-dotnet/get-started-tutorial/)**
 
+**[What is ML.NET and how does it work?](https://docs.microsoft.com/en-US/dotnet/machine-learning/how-does-mldotnet-work/)**
+
 ----------------------------------------------------------------------------------------------------
 
 ## Windows.

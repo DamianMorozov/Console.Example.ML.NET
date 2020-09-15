@@ -6,16 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.01] - 2020-09-15
+## [0.1.10] - 2020-09-15
 ### Added
-- NetCoreMLAppML.ConsoleApp
-- NetCoreMLAppML.Model
+- NetCoreMLAppML.Model.
+- NetCoreMLApp:
+  - IrisData and IrisPrediction from ModelBuilder.
+  - HouseData and HousePrediction from array.
 ### Updated
-- LICENSE
-- NuGet package Microsoft.ML 1.5.2
+- LICENSE.
+- NuGet package Microsoft.ML 1.5.2.
 ### Removed
-- NetFrameworkMLApp
-- myMLApp
+- myMLApp.
+- NetCoreMLAppML.ConsoleApp.
+- NetFrameworkMLApp.
 
 ## [0.0.21] - 2019-04-24
 ### Added
