@@ -4,6 +4,8 @@
 
 **[ML.NET Guide.](https://docs.microsoft.com/ru-ru/dotnet/machine-learning/)**
 
+**[ML.NET Tutorial - Get started in 10 minutes](https://dotnet.microsoft.com/learn/ml-dotnet/get-started-tutorial/)**
+
 ----------------------------------------------------------------------------------------------------
 
 ## Windows.
